@@ -7,9 +7,6 @@ function OuterRing () {
         basic.pause(Per_cycle / 16)
     }
 }
-input.onButtonPressed(Button.A, function () {
-    Run()
-})
 function SetInner (Index: number, Brightness: number) {
     led.plot(InnerX[Index], InnerY[Index])
 }
@@ -21,13 +18,13 @@ function Run () {
         . . . . .
         . . . . .
         `).showImage(0)
-    for (let index = 0; index <= 8; index++) {
+    for (let index = 0; index <= 7; index++) {
         let LoopCount = 0
-        OuterRing()
         SetInner(index, 255)
         led.plotBrightness(2, 2, index * (255 / LoopCount))
+        OuterRing()
     }
-    basic.showString("Done!")
+    basic.showIcon(IconNames.Yes)
 }
 function Init () {
     OuterX = [2, 3, 4, 4, 4, 4, 4, 3, 2, 1, 0, 0, 0, 0, 0, 1]
